@@ -68,10 +68,10 @@ const galleryEl = document.querySelector(".gallery");
 
 const galleryMarkup = images
     .map(({ preview, original, description }) => 
-        `<li class="gallery-item">
-            <a class="gallery-link" href="${original}">
+        `<li class="js-gallery-item">
+            <a class="js-gallery-link" href="${original}">
                 <img
-                class="gallery-image"
+                class="js-gallery-image"
                 src="${preview}"
                 data-source="${original}"
                 alt="${description}"
@@ -81,3 +81,23 @@ const galleryMarkup = images
     .join(""); 
 
 galleryEl.insertAdjacentHTML("beforeend", galleryMarkup);
+
+galleryEl.addEventListener("click", handleClick);
+
+function handleClick(event) {
+    event.preventDefault();
+
+    if (event.target === event.currentTarget) {
+        console.log("fon")
+        return;
+      }
+
+    const imageEl = event.target
+    const imgSource = imageEl.dataset.source;
+
+    const basicLightboxInstance = basicLightbox.create(`
+        <img src="${imgSource}" width="1112" height="640">
+    `);
+
+    basicLightboxInstance.show();
+  };
