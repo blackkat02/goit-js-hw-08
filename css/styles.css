@@ -28,8 +28,22 @@ body {
     width: 360px;
     height: 200px;
     object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
 }
 
 .gallery img:hover {
     transform: scale(1.05);
+}
+
+.basicLightbox {
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.basicLightbox__placeholder img {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
 }

@@ -95,9 +95,9 @@ function handleClick(event) {
     const imageEl = event.target
     const imgSource = imageEl.dataset.source;
 
-    const basicLightboxInstance = basicLightbox.create(`
+    const lightboxInstance = basicLightbox.create(`
         <img src="${imgSource}" width="1112" height="640">
     `);
 
-    basicLightboxInstance.show();
+    lightboxInstance.show();
   };
